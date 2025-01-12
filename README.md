@@ -9,6 +9,6 @@ Project Forecast is a Node.js-based app that shows real-time weather, including 
 <img src="CSS-Logo.png" alt="Description" width="130px" >
 <img src="JavaScript-Logo-2048x1280.png" alt="Description" width="130px" >
 <img src="node_js.png" alt="Description" width="120px" >
-<img src="rest-api-logo.png" alt="Description" width="120px" >
+<img src="rest-api-logo.png" alt="Description" width="90px" >
 </div>
 
