@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="<%= typeof isNight !== 'undefined' ? (isNight ? 'night' : 'day') : '' %>">
+    <div class="container">
+         <div class="inside_container">
+            <h2>Enter your location to get the forecast</h2>
+            <form class="form" action="/forecast" method="POST">
+                <label for="location">Enter your location:</label>
+                <input type="text" id="location" name="location" placeholder="location" required>
+                <button type="submit">Get Forecast</button>
+            </form>
+
+        <div class="result_location">
+            
+                <% if (locals.weatherData && weatherData.length > 0) { %>
+                    <div class="inside_result">
+                    <h1><%= locationName %></h1>
+                    <h3>Latitude and Longitude</h3>
+                    <p><%= location %></p>
+                    <% weatherData.forEach(data => { %>
+                        <p>Description: <%= data.description %></p>
+                        <p>Temperature: <%= data.temp %>°C</p>
+                        <img src="<%= data.icon %>" alt="Weather Icon">
+                    <% }) %>
+                    <% if (locals.isNight) { %>
+                        <p>It is currently night time.</p>
+                        <p>Local Time: <%= time %></p>
+                    <% } else { %>
+                        <p>It is currently day time.</p>
+                        <p>Local Time: <%= time %></p>
+                    <% } %>
+                </div>
+                <% } %>
+          
+        </div>
+    </div>
+   </div>
+
+</body>
+</html>
